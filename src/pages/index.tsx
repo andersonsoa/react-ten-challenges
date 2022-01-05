@@ -1,11 +1,25 @@
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 import type { NextPage } from "next";
+import { Article } from "../components/Article";
 
 const Home: NextPage = () => {
   return (
-    <Box p="20">
-      <Text color="pink.600">Hello</Text>
-    </Box>
+    <Article>
+      <Box>
+        <Text as="h1" fontSize="3xl" align="center">
+          10 ReactJS Coding Challenge (💥Coding Interview Prep💥)
+        </Text>
+
+        <Box p="2" borderRadius="md" bg="gray.800" my="6">
+          <Text as="h2" fontSize="2xl" align="center">
+            Inspired on a blog post from{" "}
+            <a href="https://dev.to/frontendengineer/10-reactjs-coding-exercises-with-codepen-exercise-and-solution--22k7?signin=true">
+              Dev.to
+            </a>{" "}
+          </Text>
+        </Box>
+      </Box>
+    </Article>
   );
 };
 
