@@ -5,7 +5,7 @@ import { Article } from "../components/Article";
 const Home: NextPage = () => {
   return (
     <Article>
-      <Box>
+      <Flex direction="column" justifyContent="center" mt="12">
         <Text as="h1" fontSize="3xl" align="center">
           10 ReactJS Coding Challenge (💥Coding Interview Prep💥)
         </Text>
@@ -18,7 +18,7 @@ const Home: NextPage = () => {
             </a>{" "}
           </Text>
         </Box>
-      </Box>
+      </Flex>
     </Article>
   );
 };

@@ -9,9 +9,9 @@ export const MotionBox: React.FC<MotionBoxProps> = motion(chakra.div);
 
 export const Article: React.FC = ({ children }) => {
   const variants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 10 },
     visible: { opacity: 1, y: 0 },
-    exit: { opacity: 0, y: 30 },
+    exit: { opacity: 0, y: 10 },
   };
 
   return (
