@@ -4,14 +4,20 @@ import type { AppProps } from "next/app";
 import { MainLayout } from "../components/layouts/MainLayout";
 import { theme } from "../styles/theme";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps, router }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
-      <AnimatePresence exitBeforeEnter initial={true}>
-        <MainLayout>
-          <Component {...pageProps} />
-        </MainLayout>
-      </AnimatePresence>
+      <MainLayout>
+        <AnimatePresence
+          exitBeforeEnter
+          initial={true}
+          onExitComplete={() => {
+            window.scrollTo(0, 0);
+          }}
+        >
+          <Component {...pageProps} key={router.route} />
+        </AnimatePresence>
+      </MainLayout>
     </ChakraProvider>
   );
 }

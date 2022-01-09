@@ -27,13 +27,8 @@ export const Header: React.FC = () => {
         </NextLink>
 
         <Stack direction="row" spacing="6">
-          <NextLink href="/challenges">
-            <Button size="sm" colorScheme="blackAlpha">
-              Desafios
-            </Button>
-          </NextLink>
           <a
-            href="https://github.com/andersonsoa"
+            href="https://github.com/andersonsoa/react-ten-challenges"
             target="_blank"
             rel="noreferrer"
           >
