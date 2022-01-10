@@ -1,5 +1,4 @@
-import { AnimatePresence } from "framer-motion";
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, Grid, Flex, GridItem } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { RiHome7Fill } from "react-icons/ri";
 import { Header } from "../Header";
@@ -35,15 +34,25 @@ export const MainLayout: React.FC = ({ children }) => {
       borderRadius: "24px",
     },
     "&:hover::-webkit-scrollbar-thumb": {
-      background: "#000",
+      background: "#111a",
     },
   };
 
   return (
-    <Flex direction="column" h="100vh" overflow="hidden">
+    <Flex h="100vh" direction="column">
       <Header />
 
-      <Flex w="100%" my="6" maxW={1480} mx="auto" px="6" h="80vh" gap="8">
+      <Flex
+        flex="1"
+        w="100%"
+        maxW={1480}
+        mx="auto"
+        px="6"
+        py="4"
+        gap="8"
+        h="100%"
+        overflow="hidden"
+      >
         <Box minW={300}>
           <SidebarContainer title="Sobre o Desafio">
             <SidebarItem
@@ -68,6 +77,7 @@ export const MainLayout: React.FC = ({ children }) => {
             ))}
           </SidebarContainer>
         </Box>
+
         <Box flex="1" overflowY="scroll" css={scrollBarCss}>
           {children}
         </Box>

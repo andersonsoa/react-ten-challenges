@@ -2,6 +2,12 @@ import { Box, Container, Flex, Text } from "@chakra-ui/react";
 import { NextPage } from "next";
 import { Animated } from "../../components/Animated";
 
+import dynamic from "next/dynamic";
+
+const MyChart = dynamic(() => import("../../components/TradingChart"), {
+  ssr: false,
+});
+
 interface RowProps {
   preco: number;
   quantidade: number;
@@ -33,7 +39,7 @@ const Row: React.FC<RowProps> = ({ preco, quantidade, total, porcentagem }) => {
 const Challange11: NextPage = () => {
   return (
     <Animated>
-      <Box>
+      <Box p="4">
         <Text as="h1" fontSize="3xl">
           Display array of users to browser
         </Text>
@@ -50,6 +56,10 @@ const Challange11: NextPage = () => {
           <Row preco={20203} quantidade={203} total={2033} porcentagem="0%" />
           <Row preco={20203} quantidade={203} total={2033} porcentagem="90%" />
           <Row preco={20203} quantidade={203} total={2033} porcentagem="100%" />
+        </Box>
+
+        <Box h={400} my="4" overflow="hidden">
+          <MyChart />
         </Box>
       </Box>
     </Animated>

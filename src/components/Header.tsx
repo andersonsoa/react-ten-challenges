@@ -9,22 +9,25 @@ import {
   Icon,
 } from "@chakra-ui/react";
 import { FaGithub } from "react-icons/fa";
+import Link from "next/link";
 
 export const Header: React.FC = () => {
   return (
     <Box as="header" bg="gray.800">
       <Flex
         w="100%"
-        my="6"
+        py="6"
         maxW={1480}
         mx="auto"
         px="6"
         justifyContent="space-between"
         align="center"
       >
-        <NextLink href="/">
-          <Text cursor="pointer">10-Challanges!</Text>
-        </NextLink>
+        <Box>
+          <NextLink href="/">
+            <Text cursor="pointer">10-Challanges!</Text>
+          </NextLink>
+        </Box>
 
         <Stack direction="row" spacing="6">
           <a

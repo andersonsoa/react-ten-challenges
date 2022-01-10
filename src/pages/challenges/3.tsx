@@ -1,17 +1,43 @@
-import { Box, Text } from "@chakra-ui/react";
 import { NextPage } from "next";
 import { Animated } from "../../components/Animated";
+import { Answer } from "../../components/Answer";
+import Code from "../../components/Code";
 
 const Challange3: NextPage = () => {
   return (
     <Animated>
-      <Box>
-        <Text as="h1">Show/Hide Element on Screen</Text>
-        <Text as="p">
-          Challenge: Make the button functional A click on button should toggle
-          (show/hide) the string `Toggle Challenge` each time it is pressed
-        </Text>
-      </Box>
+      <Answer
+        title="Show/Hide Element on Screen"
+        exercise="Challenge: Make the button functional A click on button should toggle
+          (show/hide) the string `Toggle Challenge` each time it is pressed"
+      >
+        <Code language="HTML">{"<div id='root'></div>"}</Code>
+        <Code language="CSS">
+          {`button {
+  margin-bottom: 10px;
+}
+
+#root {
+  padding: 10px;
+}
+`}
+        </Code>
+        <Code language="JSX">
+          {`function App() {
+  const [] = React.useState(true);
+
+  return (
+    <>
+      <button>Hide Element Below</button>
+
+      <div>Toggle Challenge</div>
+    </>
+  );
+}
+
+ReactDOM.render(<App />, document.getElementById("root"));`}
+        </Code>
+      </Answer>
     </Animated>
   );
 };
