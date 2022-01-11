@@ -1,17 +1,36 @@
 import { Text, TextProps } from "@chakra-ui/react";
+import { paragraphVariants } from "../../config/constants";
+import { MotionBox } from "../motion/MotionBox";
 
-export const Paragraph: React.FC<TextProps> = ({ children, ...props }) => {
+interface ParagraphProps extends TextProps {
+  delay?: number;
+}
+
+export const Paragraph: React.FC<ParagraphProps> = ({
+  children,
+  delay = 0.2,
+  ...props
+}) => {
   return (
-    <Text
-      as="p"
-      lineHeight="1.5"
-      fontSize="lg"
-      fontWeight="normal"
-      color="gray.600"
-      style={{ textIndent: 20 }}
-      {...props}
+    <MotionBox
+      variants={paragraphVariants}
+      initial="hidden"
+      animate="visible"
+      transition={{ duration: 0.2, type: "easeInOut", delay }}
     >
-      {children}
-    </Text>
+      <Text
+        as="p"
+        lineHeight="1.5"
+        fontSize="md"
+        fontWeight="normal"
+        color="gray.400"
+        mb="6"
+        textAlign="justify"
+        style={{ textIndent: 20 }}
+        {...props}
+      >
+        {children}
+      </Text>
+    </MotionBox>
   );
 };

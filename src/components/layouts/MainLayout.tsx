@@ -19,7 +19,6 @@ export const MainLayout: React.FC = ({ children }) => {
     { id: 8, text: "Sum of Two Numbers", path: "/challenges/8" },
     { id: 9, text: "Create Counter App", path: "/challenges/9" },
     { id: 10, text: "Fetch data from an API", path: "/challenges/10" },
-    { id: 11, text: "Progress Background", path: "/challenges/11" },
   ];
 
   const scrollBarCss = {
@@ -71,7 +70,7 @@ export const MainLayout: React.FC = ({ children }) => {
                 href={route.path}
                 text={route.text}
                 id={route.id}
-                enterDelay={0.2 + i * 0.2}
+                enterDelay={i * 0.1}
                 active={asPath === route.path}
               />
             ))}

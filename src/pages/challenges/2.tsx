@@ -13,20 +13,7 @@ const Challange2: NextPage = () => {
         exercise="Challenge: Display all users to the browser Small Hint: Use array map
           with react key"
       >
-        <Code delay={0.2} language="HTML">{`<div id="root"></div>`}</Code>
-
-        <Code delay={0.3} language="CSS">
-          {`h3 {
-  margin-left: 20px;
-  margin-bottom: 0;
-}
-
-ul {
-  margin-top: 5px;
-}`}
-        </Code>
-
-        <Code delay={0.4} language="JSX">
+        <Code delay={0.2} language="JSX">
           {`const users = [
   { name: "John Doe", id: 1 },
   { name: "Jane Doe", id: 2 },
@@ -46,6 +33,17 @@ function App() {
 
 ReactDOM.render(<App />, document.getElementById("root"));
     `}
+        </Code>
+        <Code delay={0.3} language="HTML">{`<div id="root"></div>`}</Code>
+        <Code delay={0.4} language="CSS">
+          {`h3 {
+  margin-left: 20px;
+  margin-bottom: 0;
+}
+
+ul {
+  margin-top: 5px;
+}`}
         </Code>
       </Answer>
     </Animated>
