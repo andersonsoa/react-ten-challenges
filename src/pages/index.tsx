@@ -7,8 +7,8 @@ import { Title } from "../components/typograph/Title";
 const Home: NextPage = () => {
   return (
     <Animated>
-      <Box pt="10" width="60ch" mx="auto">
-        <Title align="center">
+      <Box pt="10" maxW="60ch" mx="auto">
+        <Title textAlign="center">
           10 ReactJS Coding Challenge <br /> (💥Coding Interview Prep💥)
         </Title>
 

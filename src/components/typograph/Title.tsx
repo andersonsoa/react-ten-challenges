@@ -1,8 +1,8 @@
-import { Text, TextProps } from "@chakra-ui/react";
+import { Heading, HeadingProps } from "@chakra-ui/react";
 import { titleVariants } from "../../config/constants";
 import { MotionBox } from "../motion/MotionBox";
 
-interface TitleProps extends TextProps {
+interface TitleProps extends HeadingProps {
   delay?: number;
 }
 
@@ -18,9 +18,9 @@ export const Title: React.FC<TitleProps> = ({
       animate="visible"
       transition={{ duration: 0.2, type: "easeInOut", delay }}
     >
-      <Text as="h1" fontSize="3xl" fontWeight="bold" mb="8" {...props}>
+      <Heading as="h1" fontSize="3xl" fontWeight="bold" mb="8" {...props}>
         {children}
-      </Text>
+      </Heading>
     </MotionBox>
   );
 };

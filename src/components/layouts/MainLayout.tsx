@@ -1,12 +1,16 @@
-import { Box, Grid, Flex, GridItem } from "@chakra-ui/react";
+import { Box, Flex, useBreakpointValue } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { RiHome7Fill } from "react-icons/ri";
+import { useStore } from "../../contexts/store";
 import { Header } from "../Header";
 import { SidebarContainer } from "../sidebar/SidebarContainer";
+import { SidebarDrawer } from "../sidebar/SidebarDrawer";
 import { SidebarItem } from "../sidebar/SidebarItem";
 
 export const MainLayout: React.FC = ({ children }) => {
   const { asPath } = useRouter();
+  const visible = useBreakpointValue({ base: true, md: false });
+  const { onClose } = useStore();
 
   const routes = [
     { id: 1, text: "Render simple JSX", path: "/challenges/1" },
@@ -52,7 +56,7 @@ export const MainLayout: React.FC = ({ children }) => {
         h="100%"
         overflow="hidden"
       >
-        <Box minW={300}>
+        <Box minW={300} display={{ md: "block", base: "none" }}>
           <SidebarContainer title="Sobre o Desafio">
             <SidebarItem
               id={1}
@@ -76,6 +80,34 @@ export const MainLayout: React.FC = ({ children }) => {
             ))}
           </SidebarContainer>
         </Box>
+
+        {visible && (
+          <SidebarDrawer title="10-Challanges!">
+            <SidebarContainer title="Sobre o Desafio">
+              <SidebarItem
+                id={1}
+                href="/"
+                text="Inicio"
+                icon={RiHome7Fill}
+                active={asPath === "/"}
+              />
+            </SidebarContainer>
+
+            <SidebarContainer title="Desafios">
+              {routes.map((route, i) => (
+                <SidebarItem
+                  key={route.path}
+                  href={route.path}
+                  text={route.text}
+                  id={route.id}
+                  enterDelay={i * 0.1}
+                  active={asPath === route.path}
+                  onClick={onClose}
+                />
+              ))}
+            </SidebarContainer>
+          </SidebarDrawer>
+        )}
 
         <Box flex="1" overflowY="scroll" css={scrollBarCss}>
           {children}
