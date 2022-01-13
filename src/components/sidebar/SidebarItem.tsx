@@ -13,6 +13,7 @@ interface SidebarItemProps extends LinkProps {
   enterDelay?: number;
   active?: boolean;
   icon?: IconType;
+  onClick?: () => void;
 }
 
 export const SidebarItem: React.FC<SidebarItemProps> = ({
@@ -22,6 +23,7 @@ export const SidebarItem: React.FC<SidebarItemProps> = ({
   id,
   enterDelay = 0.2,
   icon,
+  onClick,
 }) => {
   const containerVariants = {
     hidden: { opacity: 0, x: -20 },
@@ -42,6 +44,7 @@ export const SidebarItem: React.FC<SidebarItemProps> = ({
         animate="visible"
         variants={containerVariants}
         transition={{ delay: enterDelay }}
+        onClick={onClick}
       >
         <Flex
           alignItems="center"

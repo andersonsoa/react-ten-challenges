@@ -9,9 +9,12 @@ import {
   Icon,
 } from "@chakra-ui/react";
 import { FaGithub } from "react-icons/fa";
-import Link from "next/link";
+import { RiMenuFill } from "react-icons/ri";
+import { useStore } from "../contexts/store";
 
 export const Header: React.FC = () => {
+  const { onOpen } = useStore();
+
   return (
     <Box as="header" bg="gray.800">
       <Flex
@@ -23,11 +26,21 @@ export const Header: React.FC = () => {
         justifyContent="space-between"
         align="center"
       >
-        <Box>
-          <NextLink href="/">
-            <Text cursor="pointer">10-Challanges!</Text>
-          </NextLink>
-        </Box>
+        <Flex align="center">
+          <Button
+            colorScheme="blackAlpha"
+            bg="gray.900"
+            display={{ md: "none", base: "block" }}
+            onClick={onOpen}
+          >
+            <Icon as={RiMenuFill} />
+          </Button>
+          <Box display={{ md: "block", base: "none" }}>
+            <NextLink href="/">
+              <Text cursor="pointer">10-Challanges!</Text>
+            </NextLink>
+          </Box>
+        </Flex>
 
         <Stack direction="row" spacing="6">
           <a

@@ -1,28 +1,19 @@
+import { screenTransitionVariants } from "../config/constants";
 import { MotionBox } from "./motion/MotionBox";
 
 interface AnimatedProps {
   delay?: number;
 }
 
-export const Animated: React.FC<AnimatedProps> = ({
-  children,
-  delay = 0.4,
-}) => {
-  const variants = {
-    hidden: { opacity: 0, x: 0, y: 20 },
-    enter: { opacity: 1, x: 0, y: 0 },
-    exit: { opacity: 0, x: -0, y: 20 },
-  };
-
+export const Animated: React.FC<AnimatedProps> = ({ children }) => {
   return (
     <MotionBox
       initial="hidden"
       animate="enter"
       exit="exit"
-      variants={variants}
-      transition={{ duration: 0.4, type: "easeInOut" }}
+      variants={screenTransitionVariants}
+      transition={{ duration: 0.3, type: "easeInOut" }}
       style={{ position: "relative" }}
-      h="full"
     >
       {children}
     </MotionBox>

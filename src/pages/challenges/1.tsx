@@ -12,19 +12,17 @@ const Challange1: NextPage = () => {
         title="Display Simple JSX"
         exercise="Challenge: Display `JSX is cool!` as an output"
       >
-        <Code delay={0.2} language="HTML">{`<div id="root"></div>`}</Code>
-
-        <Code delay={0.3} language="CSS">
-          {"div { \n  padding: 10px;\n}"}
-        </Code>
-
-        <Code delay={0.4} language="JSX">
+        <Code delay={0.2} language="JSX">
           {`function App() {
   return <div>JSX is cool!</div>;
 }
 
 ReactDOM.render(<App />, document.getElementById("root"));
             `}
+        </Code>
+        <Code delay={0.3} language="HTML">{`<div id="root"></div>`}</Code>
+        <Code delay={0.4} language="CSS">
+          {"div { \n  padding: 10px;\n}"}
         </Code>
       </Answer>
     </Animated>
